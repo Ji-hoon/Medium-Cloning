@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     getElementsSizes(); // 계산에 필요한 값을 구하는 함수 1회 실행
 });
 
-const stickyAside = document.getElementsByClassName('aside-container')[0]; //타겟 엘리먼트를 담을 변수
+const stickyAsideElement = document.getElementsByClassName('aside-container')[0]; //타겟 엘리먼트를 담을 변수
 
 let windowHeight; //브라우저의 높이를 담을 변수
 let stickyAsideHeight; //타겟 엘리먼트의 높이를 담을 변수 (외곽)
@@ -23,19 +23,19 @@ let bannerHeight; //상단 배너 엘리먼트의 높이를 담을 변수
 
 
 // getElementsSizes 함수 : sticky 판단에 필요한 값을 업데이트
-function getElementsSizes() {
+getElementsSizes = () => {
     windowHeight = window.innerHeight;
-    stickyAsideHeight = stickyAside.offsetHeight;
+    stickyAsideHeight = stickyAsideElement.offsetHeight;
     headerHeight = document.getElementsByTagName('nav')[0].offsetHeight;
     bannerHeight = document.getElementsByClassName('banner-area')[0].offsetHeight;
 }
 
 // stickAside 함수 : 현재 스크롤값과 윈도우 높이를 기준으로 sticky 여부를 판단하여 적용
-function stickAside(scrollPos) {
+stickAside = (scrollPos) => {
   const aside = document.getElementsByTagName('aside')[0];
   if(scrollPos){
     aside.className = 'sticky';
-    stickyAside.style.top = -(stickyAsideHeight - windowHeight).toString() + "px";
+    stickyAsideElement.style.top = -(stickyAsideHeight - windowHeight).toString() + "px";
   } else {
     aside.className = '';
   }
