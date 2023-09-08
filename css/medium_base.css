@@ -7,6 +7,8 @@
     overflow-y: auto;
 } */
 
+html {overflow: hidden;overflow-y: auto;}
+
 nav {
     position: sticky;
     top:0;
@@ -148,7 +150,8 @@ i.fa-splotch {
 
 .articles {
     width: 728px;
-    min-width: 728px;
+    max-width: 728px;
+    /* min-width: 728px; */
     padding: 24px 0 40px;
 }
 .sub-nav-container {
@@ -216,8 +219,22 @@ article {
     align-items: center;
     gap: 4px;
     color: #363636;
-    flex: 1 0;
+    flex: 1 0 auto;
 }
+.article-author > .article-author-name,
+.article-author > .article-author-category {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.article-author > *:not(.article-author-name):not(.article-author-category)  {
+    flex-basis: auto;
+    flex-shrink: 0;
+}
+..article-restrict {
+    flex: 1 0 auto;
+}
+
 .article-profile {
     width: 24px;
     height: 24px;
@@ -259,9 +276,14 @@ article {
     font-size: 15px;
     line-height: 21px;
 }
+.article-content.top ~ div {
+    display: block;
+}
 
 .article-content.bottom {
     display: flex;
+    overflow: visible;
+    gap: 8px;
 }
 .article-content.bottom .article-meta > * {
     font-size: 13px;
@@ -300,7 +322,7 @@ article {
 }
 aside {
     width: 368px;
-    min-width: 368px;
+    /* min-width: 368px; */
     border-left: 1px solid #F2F2F2;
 }
 
@@ -325,6 +347,7 @@ aside.sticky .aside-container {
     flex-direction: column;
     gap: 18px;
     position: relative;
+    align-items: flex-start;
 }
 .aside-section h4 {
     font-weight: 500;
@@ -336,6 +359,7 @@ aside.sticky .aside-container {
 aside .article-author {
     font-size: 13px;
     line-height: 16px;
+    width: 100%;
 }
 aside .article-profile {
     line-height: 22px;
@@ -374,6 +398,7 @@ aside .list-item-wrapper {
     display: flex;
     flex-direction: column;
     gap: 6px;
+    align-items: flex-start;
 }
 
 aside .list-item-container {
@@ -440,4 +465,36 @@ footer .btn-link-text {
 }
 .btn-link-text:hover {
     text-decoration: underline;
+}
+
+
+@media (min-width:1080px) {
+    .articles {
+        min-width: 728px;
+    }
+    aside {
+        min-width: 368px;
+    }
+}
+
+@media (min-width:900px) and (max-width:1079px) {
+    .articles {
+        width: auto;
+    }
+    aside {
+        width: 352px;
+    }
+    .article-thumb {
+        margin-left: 36px;
+    }
+}
+
+@media (max-width: 899px) {
+    aside {
+        width: 0;
+        visibility: hidden;
+    }
+    .article-thumb {
+        margin-left: 16px;
+    }
 }
