@@ -131,6 +131,7 @@ nav ul {
 }
 .banner-content a {
     text-decoration: underline;
+    white-space: nowrap;
 }
 i.fa-splotch {
     color: rgb(255, 192, 23);
@@ -502,4 +503,20 @@ footer .btn-link-text {
     .article-thumb {
         margin-left: 16px;
     }
+   
+}
+@media (max-width:728px){
+    .banner-area {
+        justify-content: flex-start;
+    }
+    .banner-content {
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    .banner-content div {
+        flex-wrap: wrap;
+    }
+    .banner-content > i {
+        padding: 3px 0;
+    };
 }
