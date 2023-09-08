@@ -221,17 +221,22 @@ article {
     color: #363636;
     flex: 1 0 auto;
 }
+.article-author {
+    flex: 0 1 0;
+}
 .article-author > .article-author-name,
 .article-author > .article-author-category {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.article-author > *:not(.article-author-name):not(.article-author-category)  {
+.article-author .article-profile,
+.article-author .article-seperator,
+.article-author .article-created-date {
     flex-basis: auto;
     flex-shrink: 0;
 }
-..article-restrict {
+.article-restrict {
     flex: 1 0 auto;
 }
 
