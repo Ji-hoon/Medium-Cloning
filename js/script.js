@@ -41,6 +41,9 @@ stickAside = (scrollPos) => {
   }
 }
 
+// 스크롤 값에 따라 헤더(nav) 엘리먼트에 translateY값을, sub-nav에 top값을 업데이트 하는 함수
+
+
 // window 사이즈 변경 이벤트 발생 시 마다 실행되는 함수
 window.addEventListener("resize", (event) => {
     getElementsSizes();
@@ -61,6 +64,8 @@ document.addEventListener("scroll", (event) => {
   } else {
     stickAside(false);
   }
+
+  //calcHeaderPos(lastKnownScrollPosition);
 
 });
 
